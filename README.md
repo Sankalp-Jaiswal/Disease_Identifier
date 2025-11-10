@@ -130,33 +130,6 @@ print("Predicted:", class_names[pred_idx], "| Confidence:", round(100*float(np.m
 
 ---
 
-## 💾 Saving & Versioning
-
-This project auto-increments model versions under `../models/`:
-
-```python
-import os
-os.makedirs("../models", exist_ok=True)
-# ... find next integer version ...
-model.save(f"../models/{next_version}.keras")
-```
-
-You can also export to SavedModel or TFLite:
-
-```python
-# SavedModel
-model.save("export/saved_model")
-
-# TFLite
-import tensorflow as tf
-converter = tf.lite.TFLiteConverter.from_keras_model(model)
-tflite_model = converter.convert()
-with open("export/model.tflite", "wb") as f:
-    f.write(tflite_model)
-```
-
----
-
 ## 🧪 Reproducing the Setup
 
 1. Prepare the dataset directory:
@@ -183,21 +156,6 @@ with open("export/model.tflite", "wb") as f:
 
 ---
 
-## 📂 Project Structure (suggested)
-
-```
-.
-├── notebooks/
-│   └── Training.ipynb
-├── data/
-│   └── PlantVillage/
-├── models/
-│   └── 1.keras
-├── export/
-│   ├── saved_model/
-│   └── model.tflite
-└── README.md
-```
 
 ---
 
